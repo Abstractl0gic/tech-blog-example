@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ action }} - Tech Blog</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tech Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <!-- nav link placeholder -->
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>{{ action }}</h2>
+    
+    <form action="{{ formAction }}" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <!-- placeholder -->
+      <button type="submit">{{ action }}</button>
+    </form>
+  </main>
+  
+  <footer>
+    <p>&copy; Tech Blog</p>
+  </footer>
+</body>
+</html>
