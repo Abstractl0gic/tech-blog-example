@@ -2,6 +2,16 @@ const express = require('express');
 const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
+    // add routes into file
+const homeRoutes = require('./controllers/home');
+const postRoutes = require('./controllers/post');
+const commentRoutes = require('./controllers/comment');
+const authRoutes = require('./controllers/auth');
+
+app.use('/', homeRoutes);
+app.use('/post', postRoutes);
+app.use('/comment', commentRoutes);
+app.use('/auth', authRoutes);
 
 // a test for the database connection
 (async () => {
