@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ post.title }} - Tech Blog</title>
   <!-- Include Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-  <header>
+  <header class="bg-dark text-white text-center py-3">
     <h1>Tech Blog</h1>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-         {{!-- placeholder for nav links --}}
+        {{!-- placeholder for nav links --}}
       </ul>
     </nav>
   </header>
-  
-  <main>
+  <main class="container my-5">
     <article>
       <h2>{{ post.title }}</h2>
       <p>{{ post.content }}</p>
-      <p>By {{ post.User.username }}</p>
+      <p class="text-muted">By {{ post.User.username }}</p>
       
       <h3>Comments</h3>
-      <ul>
-        {{#each post.Comments}}
-          <li>
-            <p>{{ text }}</p>
-            <p>By {{ User.username }}</p>
-          </li>
-        {{/each}}
-      </ul>
+      {{#each post.Comments}}
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-text">{{ text }}</p>
+            <p class="text-muted">By {{ User.username }}</p>
+          </div>
+        </div>
+      {{/each}}
     </article>
-  </main>
-  
-  <footer>
+  </main> 
+  <footer class="text-center py-3">
     <p>&copy; Tech Blog</p>
   </footer>
 </body>
