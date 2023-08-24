@@ -1,19 +1,26 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-    // define post model
-const Post = sequelize.define('Post', {
+const User = require('./User');
+
+class Post extends Model {}
+Post.init(
+  {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     content: {
       type: DataTypes.TEXT,
-      allowNull: false
-    }
-  });
-    // associate the post with the user  
-  Post.belongsTo(User, {
-    foreignKey: 'user_id'
-  });
-  
-  module.exports = Post;
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+  }
+);
+
+Post.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+module.exports = Post;

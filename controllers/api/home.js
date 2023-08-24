@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { Post, User } = require('../models'); // Import your Sequelize models
-    // route for displaying all blog posts on the homepage
+const { Post, User, Comment } = require('../models/');
+
 router.get('/', async (req, res) => {
   try {
-    // this retrieves and displays blog posts on the homepage
     const posts = await Post.findAll({
       include: [
         {
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
         }
       ]
     });
-    // creates a view to show the posts
     res.render('home', { posts });
   } catch (error) {
     console.error(error);
@@ -21,4 +19,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;

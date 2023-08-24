@@ -5,25 +5,24 @@ const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
     validate: {
-      isEmail: true
-    }
+      isEmail: true,
+    },
   },
   full_name: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
-  // in case i need to add more fields.
 });
 
 module.exports = User;
