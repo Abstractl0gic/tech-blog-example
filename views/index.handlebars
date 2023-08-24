@@ -1,0 +1,14 @@
+{{!< layouts/main }}
+
+<section class="home">
+  <h2>Welcome to the Tech Blog!</h2>
+  <ul class="blog-list">
+    {{#each blogs}}
+    <li class="blog-item">
+      <h3><a href="/blog/{{id}}">{{title}}</a></h3>
+      <p>{{content}}</p>
+      <p class="author">By {{User.username}}</p>
+    </li>
+    {{/each}}
+  </ul>
+</section>

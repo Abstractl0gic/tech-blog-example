@@ -11,37 +11,18 @@ async function getBlogsAndRender(res, view, logged_in, includeUser = true) {
     res.render(view, {
       blogs,
       logged_in,
-    }); // Closing curly brace was missing here
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 }
 
 router.get('/', async (req, res) => {
-  await getBlogsAndRender(res, 'home', req.session.logged_in); 
-});
-
-router.get('/blog/:id', async (req, res) => {
-  try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        { model: Comment, include: { model: User, attributes: ['id', 'username'] } },
-        { model: User, attributes: ['id', 'username'] },
-      ],
-    });
-    const blog = mapToPlain(blogData);
-
-    res.render('blog', {
-      ...blog,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  await getBlogsAndRender(res, 'home', req.session.logged_in, false); 
 });
 
 router.get('/blog', async (req, res) => {
-  await getBlogsAndRender(res, 'blog', req.session.logged_in); 
+  await getBlogsAndRender(res, 'blog', req.session.logged_in, false); 
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -54,7 +35,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
