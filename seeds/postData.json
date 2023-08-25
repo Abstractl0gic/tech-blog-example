@@ -1,13 +1,16 @@
 [
     {
-      "title": "Introduction to Tech Blogging",
-      "content": "In this post, we'll discuss the importance of tech blogging...",
+      "title": "First Post",
+      "content": "This is the content of the first post.",
+      "createdAt": "2023-08-24 22:20:03",
+      "updatedAt": "2023-08-24 22:20:03",
       "user_id": 1
     },
     {
-      "title": "JavaScript Frameworks Comparison",
-      "content": "Comparing popular JavaScript frameworks and their pros and cons...",
+      "title": "Second Post",
+      "content": "This is the content of the second post.",
+      "createdAt": "2023-08-24 22:20:03",
+      "updatedAt": "2023-08-24 22:20:03",
       "user_id": 2
     }
-  ]
-  
+]

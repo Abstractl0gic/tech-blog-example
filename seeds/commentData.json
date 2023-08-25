@@ -1,13 +1,16 @@
 [
     {
-      "comment_text": "Great article! Looking forward to more content.",
+      "text": "Great article! Looking forward to more content.",
+      "createdAt": "2023-08-24 22:20:03",
+      "updatedAt": "2023-08-24 22:20:03",
       "user_id": 2,
       "post_id": 1
     },
     {
-      "comment_text": "I found this comparison very helpful. Thanks!",
+      "text": "I found this comparison very helpful. Thanks!",
+      "createdAt": "2023-08-24 22:20:03",
+      "updatedAt": "2023-08-24 22:20:03",
       "user_id": 1,
       "post_id": 2
     }
-  ]
-  
+]
